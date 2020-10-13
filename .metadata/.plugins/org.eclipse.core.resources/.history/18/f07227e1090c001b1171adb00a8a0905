@@ -1,0 +1,31 @@
+/*
+ * nac.h
+ *
+ *  Created on: 29 sep. 2020
+ *      Author: mariana
+ */
+
+#ifndef PUBLICIDAD_H_
+#define PUBLICIDAD_H_
+#define LIM_CARACTER 64
+
+#define TRUE 1
+#define FALSE 0
+
+typedef struct
+{
+	char textoAviso[LIM_CARACTER];
+	int numeroRubro;
+	int isEmpty;
+	int idAvisoCliente;
+}Publicidad;
+
+int pub_initPublicidads(Publicidad* pArray, int limite);
+int pub_printPublicidads(Publicidad* pArray, int limite);
+int pub_removePublicidad(Publicidad* pArray, int limite, int id);
+//int pub_sortPublicidads(Publicidad* pArray, int limite, int orden);
+int pub_buscarLibreRef(Publicidad* pArray, int limite, int* pIndice);
+int pub_findPublicidadById(Publicidad* pArray, int limite, int idBuscar);
+int pub_addPublicidadForzada(Publicidad* pArray, int limite,int numeroRubro,char* texto, int posicion);
+int pub_printAvisoCliente(Publicidad* pArray, int limite,int valorBuscado);
+#endif /* PUBLICIDAD_H_ */

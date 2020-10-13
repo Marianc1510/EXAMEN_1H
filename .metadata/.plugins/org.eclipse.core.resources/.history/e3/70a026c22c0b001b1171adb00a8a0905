@@ -1,0 +1,33 @@
+/*
+ * nac.h
+ *
+ *  Created on: 29 sep. 2020
+ *      Author: mariana
+ */
+
+#ifndef PANTALLA_H_
+#define PANTALLA_H_
+#define LIM_NOMBRE 51
+#define LIM_DIRECCION 51
+
+typedef struct
+{
+	int idCliente;
+	int isEmpty;
+	int tipoCliente;
+	float precio;
+	char nombre[LIM_NOMBRE];
+	char direccion[LIM_DIRECCION];
+}Cliente;
+
+int pan_addCliente(Cliente* pArray, int limite,int id, char* name, char* lastname,float salary,int sector);
+int pan_initClientes(Cliente* pArray, int limite);
+int pan_printClientes(Cliente* pArray, int limite);
+int pan_removeCliente(Cliente* pArray, int limite, int id);
+int pan_sortClientes(Cliente* pArray, int limite, int orden);
+int pan_buscarLibreRef(Cliente* pArray, int limite, int* pIndice);
+int pan_findClienteById(Cliente* pArray, int limite, int idBuscar);
+int pan_newClientes(Cliente* pArray, int limite);
+int pan_modificaCliente(Cliente* pArray, int limite);
+int pan_addClienteForzada(Cliente* pArray, int limite, int id, char* name, char* direccion,float precio,int tipo, int posicion);
+#endif /* PANTALLA_H_ */

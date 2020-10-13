@@ -1,0 +1,39 @@
+/*
+ * nac.h
+ *
+ *  Created on: 29 sep. 2020
+ *      Author: mariana
+ */
+
+#ifndef PUBLICIDAD_H_
+#define PUBLICIDAD_H_
+#define LONG_LASTNAME 51
+#define LONG_NAME 51
+#define LIM_EMP 20
+#define MIN_SAL 4000
+#define MAX_SAL 150000
+#define MIN_SEC	1
+#define MAX_SEC	20
+#define TRUE 1
+#define FALSE 0
+
+typedef struct
+{
+	char name[LONG_NAME];
+	char lastname[LONG_LASTNAME];
+	float salary;
+	int sector;
+	int isEmpty;
+	int id;
+}Publicidad;
+
+int pub_addPublicidad(Publicidad* pArray, int limite,int id, char* name, char* lastname,float salary,int sector);
+int pub_initPublicidads(Publicidad* pArray, int limite);
+int pub_printPublicidads(Publicidad* pArray, int limite);
+int pub_removePublicidad(Publicidad* pArray, int limite, int id);
+int pub_sortPublicidads(Publicidad* pArray, int limite, int orden);
+int pub_buscarLibreRef(Publicidad* pArray, int limite, int* pIndice);
+int pub_findPublicidadById(Publicidad* pArray, int limite, int idBuscar);
+int pub_newPublicidads(Publicidad* pArray, int limite);
+int pub_modificaPublicidad(Publicidad* pArray, int limite);
+#endif /* PUBLICIDAD_H_ */

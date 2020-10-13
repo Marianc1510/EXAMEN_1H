@@ -1,0 +1,100 @@
+/*
+ ============================================================================
+ Name        : Parcial_1.c
+ Author      : 
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
+#include <stdio_ext.h>
+#include <stdlib.h>
+#include "utN.h"
+#include "cliente.h"
+#include "publicidad.h"
+#define QTY_CLIENTE 10
+#define QTY_PUBLICACION 10
+
+int main(void) {
+	Cliente pArrayCliente[QTY_CLIENTE];
+	Publicidad pArrayPublicidad[QTY_PUBLICACION];
+	int opcion;
+
+	if(cli_initClientes(pArrayCliente, QTY_CLIENTE)==0 &&
+	   pub_initPublicidads(pArrayPublicidad, QTY_PUBLICACION)==0){
+		cli_addClienteForzada(pArrayCliente, QTY_CLIENTE, "MARIAN", "CARDO","20-66668963-3", 0);
+		cli_addClienteForzada(pArrayCliente, QTY_CLIENTE, "LOLA", "ESTER","20-39785203-7", 1);
+		cli_addClienteForzada(pArrayCliente, QTY_CLIENTE, "RITA", "PEREZ","27-40785123-1", 2);
+		cli_addClienteForzada(pArrayCliente, QTY_CLIENTE, "PABLO", "GONZALEZ","20-12144875-2", 3);
+		cli_addClienteForzada(pArrayCliente, QTY_CLIENTE, "JOSE", "GARCIA","20-92785963-1", 4);
+		pub_addPublicidadForzada(pArrayPublicidad,QTY_PUBLICACION, 1, "HOLA", 0);
+		pub_addPublicidadForzada(pArrayPublicidad,QTY_PUBLICACION, 2, "PEPE", 1);
+		pub_addPublicidadForzada(pArrayPublicidad,QTY_PUBLICACION, 5, "ILOLAY",2);
+		pub_addPublicidadForzada(pArrayPublicidad,QTY_PUBLICACION, 3, "BEBE", 3);
+
+		do{
+			if(utn_getNumero("MENU PUBLICACIONES\n"
+							"1)Alta Cliente\n"
+							"2)Modificar datos cliente\n"
+							"3)Baja cliente\n"
+							"4)Publicar\n"
+							"5)Pausar publicacion\n"
+							"6)Reanudar publicacion\n"
+							"7)Imprimir\n"
+							"8)Informar\n","OPCION INVALIDA\n", &opcion, 2, 1,8)==0)
+			{
+				switch(opcion)
+				{
+				case 1:
+					cli_addCliente(pArrayCliente, QTY_CLIENTE);
+					break;
+				case 2:
+					if(cli_printClientes(pArrayCliente, QTY_CLIENTE)==0)
+					{
+						if(cli_modificaCliente(pArrayCliente, QTY_CLIENTE)==0)
+						{
+							cli_printClientes(pArrayCliente, QTY_CLIENTE);
+							printf("\n -------------------------------------"
+								   "\n        Se modifico con exito          \n"
+								   "  -------------------------------------\n");
+						}
+						else
+						{
+							printf("\n ---------------------------"
+								   "\n      Dato incorrecto       \n"
+								   "  ---------------------------\n");
+						}
+					}
+					break;
+				case 3:
+					if(cli_printClientes(pArrayCliente, QTY_CLIENTE)==0){
+						if(cli_bajaCliente(pArrayCliente,QTY_CLIENTE,pArrayPublicidad, QTY_PUBLICACION)==0)
+						{
+							printf("\nBAJA EXITOSA");
+							cli_printClientes(pArrayCliente, QTY_CLIENTE);
+						}
+						else
+						{
+							printf("\nDATO INVALIDO");
+						}
+					}
+					break;
+				case 4:
+					break;
+				case 5:
+					break;
+				case 6:
+					break;
+				case 7:
+					break;
+				case 8:
+					break;
+				}
+			}
+
+		}while(opcion <=8);
+	}
+
+	return EXIT_SUCCESS;
+}

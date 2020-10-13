@@ -1,0 +1,164 @@
+22:37:05 **** Incremental Build of configuration Debug for project Parcial_1 ****
+make all 
+Building file: ../src/Parcial_1.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Parcial_1.d" -MT"src/Parcial_1.o" -o "src/Parcial_1.o" "../src/Parcial_1.c"
+../src/Parcial_1.c: In function ‘main’:
+../src/Parcial_1.c:57:53: warning: passing argument 3 of ‘cli_addCliente’ makes pointer from integer without a cast [-Wint-conversion]
+   57 |       if(cli_addCliente(pArrayCliente, QTY_CLIENTE, auxiliarId)==0)
+      |                                                     ^~~~~~~~~~
+      |                                                     |
+      |                                                     int
+In file included from ../src/publicidad.h:10,
+                 from ../src/Parcial_1.c:14:
+../src/cliente.h:24:53: note: expected ‘int *’ but argument is of type ‘int’
+   24 | int cli_addCliente(Cliente* pArray, int limite,int* indiceBuscado);
+      |                                                ~~~~~^~~~~~~~~~~~~
+../src/Parcial_1.c:23:6: warning: unused variable ‘auxiliarIndice’ [-Wunused-variable]
+   23 |  int auxiliarIndice;
+      |      ^~~~~~~~~~~~~~
+Finished building: ../src/Parcial_1.c
+ 
+Building file: ../src/calculos.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/calculos.d" -MT"src/calculos.o" -o "src/calculos.o" "../src/calculos.c"
+Finished building: ../src/calculos.c
+ 
+Building file: ../src/cliente.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/cliente.d" -MT"src/cliente.o" -o "src/cliente.o" "../src/cliente.c"
+../src/cliente.c: In function ‘cli_addCliente’:
+../src/cliente.c:39:42: warning: passing argument 3 of ‘cli_buscarLibreRef’ from incompatible pointer type [-Wincompatible-pointer-types]
+   39 |    if(cli_buscarLibreRef(pArray, limite, &indiceBuscado)==0)
+      |                                          ^~~~~~~~~~~~~~
+      |                                          |
+      |                                          int **
+In file included from ../src/cliente.c:7:
+../src/cliente.h:28:58: note: expected ‘int *’ but argument is of type ‘int **’
+   28 | int cli_buscarLibreRef(Cliente* pArray, int limite, int* pIndice);
+      |                                                     ~~~~~^~~~~~~
+../src/cliente.c:47:12: error: array subscript is not an integer
+   47 |      pArray[indiceBuscado]= buffer;
+      |            ^
+../src/cliente.c:48:12: error: array subscript is not an integer
+   48 |      pArray[indiceBuscado].isEmpty= FALSE;
+      |            ^
+make: *** [src/subdir.mk:32: src/cliente.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+22:40:58 **** Incremental Build of configuration Debug for project Parcial_1 ****
+make all 
+Building file: ../src/Parcial_1.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Parcial_1.d" -MT"src/Parcial_1.o" -o "src/Parcial_1.o" "../src/Parcial_1.c"
+../src/Parcial_1.c: In function ‘main’:
+../src/Parcial_1.c:57:10: error: too few arguments to function ‘cli_addCliente’
+   57 |       if(cli_addCliente(pArrayCliente, QTY_CLIENTE, auxiliarId)==0)
+      |          ^~~~~~~~~~~~~~
+In file included from ../src/publicidad.h:10,
+                 from ../src/Parcial_1.c:14:
+../src/cliente.h:24:5: note: declared here
+   24 | int cli_addCliente(Cliente* pArray, int limite,int indiceBuscado,int* id);
+      |     ^~~~~~~~~~~~~~
+../src/Parcial_1.c:23:6: warning: unused variable ‘auxiliarIndice’ [-Wunused-variable]
+   23 |  int auxiliarIndice;
+      |      ^~~~~~~~~~~~~~
+make: *** [src/subdir.mk:32: src/Parcial_1.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+22:42:06 **** Incremental Build of configuration Debug for project Parcial_1 ****
+make all 
+Building file: ../src/Parcial_1.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Parcial_1.d" -MT"src/Parcial_1.o" -o "src/Parcial_1.o" "../src/Parcial_1.c"
+Finished building: ../src/Parcial_1.c
+ 
+Building file: ../src/calculos.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/calculos.d" -MT"src/calculos.o" -o "src/calculos.o" "../src/calculos.c"
+Finished building: ../src/calculos.c
+ 
+Building file: ../src/cliente.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/cliente.d" -MT"src/cliente.o" -o "src/cliente.o" "../src/cliente.c"
+Finished building: ../src/cliente.c
+ 
+Building file: ../src/publicidad.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/publicidad.d" -MT"src/publicidad.o" -o "src/publicidad.o" "../src/publicidad.c"
+../src/publicidad.c: In function ‘pub_bajaCliente’:
+../src/publicidad.c:263:24: warning: statement with no effect [-Wunused-value]
+  263 |     pArrayPublicidad[j].idClienteAnuncio
+      |     ~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~
+../src/publicidad.c:263:41: error: expected ‘;’ before ‘}’ token
+  263 |     pArrayPublicidad[j].idClienteAnuncio
+      |                                         ^
+      |                                         ;
+  264 |    }
+      |    ~                                     
+../src/publicidad.c: In function ‘pub_buscarAvisosCliente’:
+../src/publicidad.c:286:12: error: incompatible types when assigning to type ‘Publicidad’ {aka ‘struct <anonymous>’} from type ‘int’
+  286 |    buffer= pArrayPublicidad[avisoCliente].idClienteAnuncio;
+      |            ^~~~~~~~~~~~~~~~
+../src/publicidad.c:287:22: error: incompatible types when assigning to type ‘int’ from type ‘Publicidad’ {aka ‘struct <anonymous>’}
+  287 |    *avisosPublicados=buffer;
+      |                      ^~~~~~
+make: *** [src/subdir.mk:32: src/publicidad.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+22:42:28 **** Incremental Build of configuration Debug for project Parcial_1 ****
+make all 
+Building file: ../src/publicidad.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/publicidad.d" -MT"src/publicidad.o" -o "src/publicidad.o" "../src/publicidad.c"
+../src/publicidad.c: In function ‘pub_buscarAvisosCliente’:
+../src/publicidad.c:286:12: error: incompatible types when assigning to type ‘Publicidad’ {aka ‘struct <anonymous>’} from type ‘int’
+  286 |    buffer= pArrayPublicidad[avisoCliente].idClienteAnuncio;
+      |            ^~~~~~~~~~~~~~~~
+../src/publicidad.c:287:22: error: incompatible types when assigning to type ‘int’ from type ‘Publicidad’ {aka ‘struct <anonymous>’}
+  287 |    *avisosPublicados=buffer;
+      |                      ^~~~~~
+make: *** [src/subdir.mk:32: src/publicidad.o] Error 1
+"make all" terminated with exit code 2. Build might be incomplete.
+22:42:51 **** Incremental Build of configuration Debug for project Parcial_1 ****
+make all 
+Building file: ../src/publicidad.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/publicidad.d" -MT"src/publicidad.o" -o "src/publicidad.o" "../src/publicidad.c"
+Finished building: ../src/publicidad.c
+ 
+Building target: Parcial_1
+Invoking: GCC C Linker
+gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
+Finished building target: Parcial_1
+ 
+22:42:57 **** Incremental Build of configuration Debug for project Parcial_1 ****
+make all 
+make: No se hace nada para 'all'.
+22:56:28 **** Incremental Build of configuration Debug for project Parcial_1 ****
+make all 
+Building file: ../src/Parcial_1.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Parcial_1.d" -MT"src/Parcial_1.o" -o "src/Parcial_1.o" "../src/Parcial_1.c"
+Finished building: ../src/Parcial_1.c
+ 
+Building target: Parcial_1
+Invoking: GCC C Linker
+gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
+Finished building target: Parcial_1
+ 
+22:56:31 **** Incremental Build of configuration Debug for project Parcial_1 ****
+make all 
+make: No se hace nada para 'all'.
+22:56:53 **** Incremental Build of configuration Debug for project Parcial_1 ****
+make all 
+Building file: ../src/Parcial_1.c
+Invoking: GCC C Compiler
+gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Parcial_1.d" -MT"src/Parcial_1.o" -o "src/Parcial_1.o" "../src/Parcial_1.c"
+Finished building: ../src/Parcial_1.c
+ 
+Building target: Parcial_1
+Invoking: GCC C Linker
+gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
+Finished building target: Parcial_1
+ 
+22:56:55 **** Incremental Build of configuration Debug for project Parcial_1 ****
+make all 
+make: No se hace nada para 'all'.

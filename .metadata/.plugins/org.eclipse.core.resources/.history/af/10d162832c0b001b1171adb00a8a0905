@@ -1,0 +1,33 @@
+/*
+ * nac.h
+ *
+ *  Created on: 29 sep. 2020
+ *      Author: mariana
+ */
+
+#ifndef PANTALLA_H_
+#define PANTALLA_H_
+#define LIM_NOMBRE 51
+#define LIM_DIRECCION 51
+
+typedef struct
+{
+	int idPantalla;
+	int isEmpty;
+	int tipoPantalla;
+	float precio;
+	char nombre[LIM_NOMBRE];
+	char direccion[LIM_DIRECCION];
+}Pantalla;
+
+int pan_addPantalla(Pantalla* pArray, int limite,int id, char* name, char* lastname,float salary,int sector);
+int pan_initPantallas(Pantalla* pArray, int limite);
+int pan_printPantallas(Pantalla* pArray, int limite);
+int pan_removePantalla(Pantalla* pArray, int limite, int id);
+int pan_sortPantallas(Pantalla* pArray, int limite, int orden);
+int pan_buscarLibreRef(Pantalla* pArray, int limite, int* pIndice);
+int pan_findPantallaById(Pantalla* pArray, int limite, int idBuscar);
+int pan_newPantallas(Pantalla* pArray, int limite);
+int pan_modificaPantalla(Pantalla* pArray, int limite);
+int pan_addPantallaForzada(Pantalla* pArray, int limite, int id, char* name, char* direccion,float precio,int tipo, int posicion);
+#endif /* PANTALLA_H_ */

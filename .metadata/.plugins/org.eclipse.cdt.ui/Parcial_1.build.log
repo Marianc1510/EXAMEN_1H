@@ -1,0 +1,6 @@
+22:56:55 **** Incremental Build of configuration Debug for project Parcial_1 ****
+make all 
+make: No se hace nada para 'all'.
+
+22:56:56 Build Finished. 0 errors, 0 warnings. (took 943ms)
+
