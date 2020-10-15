@@ -1,0 +1,112 @@
+/*
+ ============================================================================
+ Name        : Parcial_1.c
+ Author      : 
+ Version     :
+ Copyright   : Your copyright notice
+ Description : Hello World in C, Ansi-style
+ ============================================================================
+ */
+
+#include <stdio_ext.h>
+#include <stdlib.h>
+#include "utN.h"
+#include "publicidad.h"
+#include "cliente.h"
+#define QTY_CLIENTE 10
+#define QTY_PUBLICACION 10
+
+int main(void) {
+	Publicidad pArrayPublicidad[QTY_PUBLICACION];
+	Cliente pArrayCliente[QTY_CLIENTE];
+	int opcion;
+	int auxiliarIndice;
+	int auxiliarId;
+
+	if(pub_initPublicidads(pArrayPublicidad, QTY_PUBLICACION)==0 &&
+	   cli_initClientes(pArrayCliente, QTY_CLIENTE)==0){
+		printf("\nSe inicializo los arrays Cliente y AVISOS");
+		pub_addPublicidadForzada(pArrayPublicidad, QTY_PUBLICACION, 23, "Promo Heladera", 1, 0);
+		pub_addPublicidadForzada(pArrayPublicidad, QTY_PUBLICACION, 12, "Coca cola", 2, 1);
+		pub_addPublicidadForzada(pArrayPublicidad, QTY_PUBLICACION, 40, "Mozzarella", 1, 2);
+		cli_addClienteForzada(pArrayCliente, QTY_CLIENTE, "Mariana", "gomez","20666689633", 0);
+		cli_addClienteForzada(pArrayCliente, QTY_CLIENTE, "lucia", "Cardozo","20407859633", 1);
+		cli_addClienteForzada(pArrayCliente, QTY_CLIENTE, "Rocio", "Pucheta","20397852037", 2);
+		cli_addClienteForzada(pArrayCliente, QTY_CLIENTE, "RITA", "PEREZ","27407851231", 3);
+
+		do{
+			if(utn_getNumero("\n-----MENU PUBLICACIONES----\n"
+							"1)Alta Cliente\n"
+							"2)Modificar datos cliente\n"
+							"3)Baja cliente\n"
+							"4)Publicar\n"
+							"5)Pausar publicacion\n"
+							"6)Reanudar publicacion\n"
+							"7)Imprimir\n"
+							"8)Informar\n","OPCION INVALIDA\n", &opcion, 2, 1,8)==0)
+			{
+				switch(opcion)
+				{
+				case 1:
+					cli_buscarPosicionLibre(pArrayCliente, QTY_CLIENTE, &auxiliarId);
+					if(auxiliarId >= 0)
+					{
+						if(cli_addNewClientes(pArrayCliente, QTY_CLIENTE,auxiliarId)==0)
+						{
+							printf("\nCARGA REALIZADA CON EXITO\n");
+						}
+					}
+					else
+					{
+						printf("\nNO hay mas lugar\n");
+					}
+					break;
+				case 2:
+					if(cli_printClientes(pArrayCliente, QTY_CLIENTE)==0)
+					{
+						if(cli_modificaCliente(pArrayCliente, QTY_CLIENTE)==0)
+						{
+							cli_printClientes(pArrayCliente, QTY_CLIENTE);
+							printf("\n -------------------------------------"
+								   "\n        Se modifico con exito          \n"
+								   "  -------------------------------------\n");
+						}
+						else
+						{
+							printf("\n ---------------------------"
+								   "\n      Dato incorrecto       \n"
+								   "  ---------------------------\n");
+						}
+					}
+					break;
+				case 3:
+					/*cli_printClientes(pArrayCliente, QTY_CLIENTE);
+						if(cli_bajaCliente(pArrayCliente,QTY_CLIENTE,pArrayPublicidad, QTY_PUBLICACION)==0)
+						{
+							printf("\nBAJA EXITOSA");
+							cli_printClientes(pArrayCliente, QTY_CLIENTE);
+						}
+						else
+						{
+							printf("\nDATO INVALIDO");
+
+						}*/
+					break;
+				case 4:
+					break;
+				case 5:
+					break;
+				case 6:
+					break;
+				case 7:
+					break;
+				case 8:
+					break;
+				}
+			}
+
+		}while(opcion <=8);
+	}
+
+	return EXIT_SUCCESS;
+}

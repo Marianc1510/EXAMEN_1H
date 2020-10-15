@@ -14,14 +14,19 @@
 #include "utN.h"
 #define TRUE 1
 #define FALSE 0
+#define ACTIVA 1
+#define PAUSADA 0
 static int pub_generarIdNuevo(void);
-
+//static const char TXT_ESTADO[2][8]={"PAUSADO","ACTIVA"};
+/*
+ *
+ */
 int pub_addPublicidadForzada(Publicidad* pArray, int limite,int numeroRubro,char* texto,int idCliente, int posicion)
 {
 	int retorno = -1;
 	Publicidad buffer;
 
-	strncpy(buffer.textoAviso,texto,limite);
+	strncpy(buffer.textoAviso,texto,LIM_CARACTER);
 	buffer.numeroRubro = numeroRubro;
 	buffer.idPublicidad= pub_generarIdNuevo();
 	buffer.idClienteAnuncio= idCliente;
@@ -32,16 +37,20 @@ int pub_addPublicidadForzada(Publicidad* pArray, int limite,int numeroRubro,char
 	retorno=0;
 	return retorno;
 }
-int pub_addPublicidad(Publicidad* pArray, int limite,int indice, int* idPublicidad, int idCliente)
+/*
+ *
+ */
+int pub_addPublicidad(Publicidad* pArray, int limite,int indice,int idCliente)
 {
 	int retorno =-1;
 	Publicidad bufferEntidad;
-	if(pArray !=NULL && limite > 0 && idPublicidad!=NULL && indice >=0)
+
+	if(pArray !=NULL && limite > 0 && indice >=0)
 	{
-		if(utn_getNumero("\nIngrese numero de rubro:\n", "\nNumero incorrecto\n",&bufferEntidad.numeroRubro,2,0, 5)==0 &&
+		if(utn_getNumero("\nIngrese numero de rubro:\n", "\nNumero incorrecto\n",&bufferEntidad.numeroRubro,2,0, 100)==0 &&
 		   utn_getTexto("\nIngrese el texto del aviso\n", "\nDatos incorrectos\n",bufferEntidad.textoAviso, LIM_CARACTER, 2)==0)
 		{
-
+			bufferEntidad.idClienteAnuncio=idCliente;
 			bufferEntidad.idPublicidad= pub_generarIdNuevo();
 			pArray[indice]= bufferEntidad;
 			pArray[indice].isEmpty= FALSE;
@@ -57,6 +66,7 @@ static int pub_generarIdNuevo(void)
 	id= id+1;
 	return id;
 }
+
 /*
  * \brief initEnployees: inicializa el array indicando que todas las posiciones esten vacias
  * \param pArray, array de Publicidad a ser actualizado
@@ -89,14 +99,14 @@ int pub_printPublicidads(Publicidad* pArray, int limite)
 	int i;
 	if(pArray != NULL && limite > 0)
 	{
-		printf("\n----------------------------------------------------------"
-			   "\n ID AVISO  | NUMERO RUBRO  | TEXTO AVISO  | ID CLIENTE    "
-			   "\n----------------------------------------------------------");
+		printf("\n-----------------------------------------------------------------------"
+			   "\n ID AVISO  | NUMERO RUBRO  | TEXTO AVISO  | ID CLIENTE   |ESTADO AVISO "
+			   "\n-----------------------------------------------------------------------");
 		for( i=0; i< limite; i ++)
 		{
 			if(pArray[i].isEmpty == FALSE)
 			{
-				printf("\n %d    -%d     -%s     -%d \n", pArray[i].idPublicidad,pArray[i].numeroRubro,pArray[i].textoAviso,pArray[i].idClienteAnuncio);
+				printf("\n %d        |%d        |%s          |%d      |%d \n", pArray[i].idPublicidad,pArray[i].numeroRubro,pArray[i].textoAviso,pArray[i].idClienteAnuncio,pArray[i].isState);
 			}
 		}
 		retorno = 0;
@@ -229,6 +239,25 @@ int pub_buscarLibreRef(Publicidad* pArray, int limite,int* pIndice)
 	}
 	return retorno;
 }
+int pub_cambiarEstado(Publicidad* pArray, int limite,int* estado)
+{	int retorno =-1;
+	int i;
+
+	if(pArray != NULL && limite > 0 && estado!=NULL)
+	{
+		for(i=0; i<limite; i++)
+		{
+			if(pArray[i].isState == 1)
+			{
+				*estado=i;
+				retorno=0;
+				break;
+			}
+		}
+	}
+	return retorno;
+}
+
 /*
  * \brief findPublicidadById: recorre el array buscando por su ID
  * \param Publicidad* pArray, direccion de memoria donde se guardan todos los datos
@@ -254,52 +283,81 @@ int pub_findPublicidadById(Publicidad* pArray, int limite, int idBuscar)
 	}
 	return retorno;
 }
-/*
- * \brief removeCliente: Recorre el array para eliminar un empleado utilizando su id
- * \param Cliente* pArray, direccion de memoria donde se guardan todos los datos
- * \param int limite, longitud del array
- * \param int id, valor cual debemos buscar en el array
- * \return retorno 0(EXITO)si se pudo eliminar, -1(ERROR) si no se pudo encontrar el empleado, puntero nulo
-*/
-int pub_bajaCliente(Publicidad* pArrayPublicidad, int limitePublicidad,Cliente* pArray, int limite)
+int pub_bajaPublicidadCliente(Publicidad* pArray,int limite, Cliente* pArrayCliente, int limCliente)
 {
-	int retorno = -1;
-	int i;
-	int j;
-	int valorBuscado;
-	if(pArray !=NULL && limite >=0 && pArrayPublicidad !=NULL && limitePublicidad > 0)
+	int retorno=-1;
+	int idCliente;
+	int auxIdAviso;
+	char respuesta;
+	if(utn_getNumero("\n------INGRESE ID DEL CLIENTE-------\n", "\nID INVALIDO\n", &idCliente, 2, 0,limCliente)==0)
 	{
-			if(utn_getNumero("\nIngrese id del cliente", "\nOpcion INVALIDA", &valorBuscado, 1, 0, limite) &&
-				pub_printAvisoCliente(pArrayPublicidad, limitePublicidad, valorBuscado)!=-1)
-			{
-
-			}
-
+		if(cli_findClienteById(pArrayCliente, limCliente, idCliente)==0 &&
+				pub_buscarLibreRef(pArray, limite, &auxIdAviso)==0)
+				{
+					pub_printAvisoCliente(pArray, limite, auxIdAviso);
+					if(utn_getCaracter("\n---Desea confirmar Eliminacion  SI[s] NO[n]---\n", "\nERROR\n", &respuesta, 1, 'n', 's')==0)
+					{
+						if(respuesta == 's')
+						{
+							pub_removePublicidad(pArray, limite, auxIdAviso);
+							cli_removeCliente(pArrayCliente, limCliente, idCliente);
+						}
+					}
+				}
 
 	}
 	return retorno;
 }
-
-int pub_buscarAvisosCliente(Publicidad* pArrayPublicidad, int limPublicidad,Cliente* pArray, int limite,int* avisosPublicados)
+int pub_pausarPublicacion(Publicidad* pArray, int limite)
 {
-	int retorno =-1;
-	int indiceCliente;
-	int idBuscar;
-	int avisoCliente;
-	Publicidad buffer;
-	if(pArray != NULL && limite > 0 )
+	int retorno=-1;
+	int idABuscar;
+	int respuesta;
+	int avisoApausar;
+	if(pArray !=NULL && limite >0)
 	{
-		utn_getNumero("\nINGRESE ID DEL CLIENTE", "\nERROR", &idBuscar, 1,1,limite);
-		indiceCliente=cli_findClienteById(pArray, limite, idBuscar);
-		if(indiceCliente !=-1 && pArrayPublicidad !=NULL && limPublicidad > 0 && avisosPublicados !=NULL)
+		pub_printPublicidads(pArray, limite);
+		if(utn_getNumero("\n-----INGRESE ID DEL AVISO----\n","\nDATO INCORRECTO\n", &idABuscar, 1, 0, limite)==0)
 		{
+			pub_printAvisoCliente(pArray, limite, idABuscar);
+			if(utn_getNumero("\n----¿DESEA CAMBIAR EL ESTADO A 'PAUSADO' SI[1] NO[2]?------\n", "\nERROR\n", &respuesta, 1, 1, 2)==0 && respuesta ==1)
+			{
+					avisoApausar= pub_findPublicidadById(pArray, limite, idABuscar);
+					if(utn_getNumero("\nINGRESE ID AVISO A PAUSAR\n", "\nID invalido", &avisoApausar, 1, 0, limite)==0)
+					{
+						pub_cambiarEstado(pArray, limite, &avisoApausar);
+						retorno=0;
+					}
 
-			avisoCliente= pub_printAvisoCliente(pArrayPublicidad, limPublicidad, indiceCliente);
-			buffer= pArrayPublicidad[avisoCliente].idClienteAnuncio;
-			*avisosPublicados=buffer;
-			retorno=0;
+
+			}
+
 		}
 	}
 	return retorno;
 }
-
+int pub_reanudarPublicacion(Publicidad* pArray, int limite)
+{
+	int retorno=-1;
+	int idABuscar;
+	int respuesta;
+	int avisoActivar;
+	if(pArray !=NULL && limite >0)
+	{
+		pub_printPublicidads(pArray, limite);
+		if(utn_getNumero("\n-----INGRESE ID DEL AVISO----\n","\nDATO INCORRECTO\n", &idABuscar, 1, 0, limite)==0)
+		{
+			pub_printAvisoCliente(pArray, limite, idABuscar);
+			if(utn_getNumero("\n----¿DESEA CAMBIAR EL ESTADO A 'ACTIVO' SI[1] NO[2]?------\n", "\nERROR\n", &respuesta, 1, 1, 2)==0 && respuesta ==1)
+			{
+				avisoActivar = pub_findPublicidadById(pArray, limite, idABuscar);
+					if(utn_getNumero("\nINGRESE ID AVISO A ACTIVAR\n", "\nID invalido", &avisoActivar, 1, 0, limite)==0)
+					{
+						pub_cambiarEstado(pArray, limite, &avisoActivar);
+						retorno=0;
+					}
+			}
+		}
+	}
+	return retorno;
+}

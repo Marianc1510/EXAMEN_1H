@@ -27,30 +27,26 @@ static int cli_generarIdNuevo(void);
  *\param float salary
  *\param int sector
  *\ Retorno: 0 (EXITO) si esta todo OK. -1(ERROR) Si hubo un error
- */
 
-int cli_addCliente(Cliente* pArray, int limite,int indiceBuscado,int* id)
+*/
+int cli_addCliente(Cliente* pArray, int limite,int indice,char* nombre, char* apellido, char* cuit)
 {
 	int retorno = -1;
 	Cliente buffer;
 
-	if(pArray!= NULL && limite >= 0 && indiceBuscado < limite && indiceBuscado >0 && id !=NULL)
+	if(pArray!= NULL && limite >= 0 && indice >=0 && indice <limite)
 	{
-	  if(cli_getEmptyIndex(pArray, limite, &indiceBuscado)==0)
-		{
 
-		if(utn_getTexto("\nINGRESE NOMBRE DEL CLIENTE:", "\nNOMBRE INCORRECTO", buffer.nombre, LIM_NOMBRE, 2)==0 &&
+		  if(utn_getTexto("\nINGRESE NOMBRE DEL CLIENTE:", "\nNOMBRE INCORRECTO", buffer.nombre, LIM_NOMBRE, 2)==0 &&
 			utn_getTexto("\nINGRESE APELLIDO DEL CLIENTE:", "\nAPELLIDO INCORRECTO", buffer.apellido, LIM_APELLIDO, 2)==0 &&
 			utn_getCuit("\nINGRESE CUIT DEL CLIENTE", "\nCUIT INVALIDO", buffer.cuit,1, LIM_CUIT)==0)
 				{
-					buffer.idCliente= cli_generarIdNuevo();
-					*id=buffer.idCliente;
-					pArray[indiceBuscado]= buffer;
-					pArray[indiceBuscado].isEmpty= FALSE;
+			  	  	buffer.idCliente = cli_generarIdNuevo();
+					pArray[indice] = buffer;
+					pArray[indice].isEmpty = FALSE;
 
 					retorno=0;
 				}
-		}
 	}
 	return retorno;
 }
@@ -99,7 +95,7 @@ int cli_printClientes(Cliente* pArray, int limite)
 		{
 			if(pArray[i].isEmpty == FALSE)
 			{
-				printf("\n %d    -%s     -%s     -%s  \n", pArray[i].idCliente,pArray[i].nombre,pArray[i].apellido,pArray[i].cuit);
+				printf("\n %d    |%s     |%s     |%s  \n", pArray[i].idCliente,pArray[i].nombre,pArray[i].apellido,pArray[i].cuit);
 			}
 		}
 		retorno = 0;
@@ -115,7 +111,7 @@ int cli_modificaCliente(Cliente* pArray, int limite)
 
 	if(pArray !=NULL && limite >= 0)
 	{
-		utn_getNumero("\nINGRESE ID A MODIFICAR", "\nERROR", &modificar, 1,1,limite);
+		utn_getNumero("\n------INGRESE ID DEL CLIENTE A MODIFICAR------", "\nERROR", &modificar, 1,1,limite);
 		indiceBuscado=cli_findClienteById(pArray, limite, modificar);
 			if( indiceBuscado !=-1 &&
 				utn_getTexto("\nINGRESE NOMBRE A MODIFICAR:", "\nNOMBRE INCORRECTO", buffer.nombre, LIM_NOMBRE, 2)==0 &&
@@ -125,9 +121,17 @@ int cli_modificaCliente(Cliente* pArray, int limite)
 						buffer.idCliente= pArray[indiceBuscado].idCliente;
 						buffer.isEmpty=pArray[indiceBuscado].isEmpty;
 						pArray[indiceBuscado]=buffer;
+						printf("\n--------------------------------------------------------------"
+							   "\n                 Se modifico con exito          \n"
+							   "----------------------------------------------------------------\n");
 						retorno=0;
 					}
-
+			else
+			{
+				printf("\n --------------------------------------------"
+					   "\n              Dato incorrecto       \n"
+					   "---------------------------------------------\n");
+			}
 	}
 	return retorno;
 }
@@ -172,14 +176,14 @@ int cli_sortClientes(Cliente* pArray, int limite, int orden)
 }
 */
 /*
- * brief buscarLibreRef: recorre el array buscando una posicion vacia
+ * brief buscarPosicionLibre: recorre el array buscando una posicion vacia
  * \param Cliente* pArray, direccion de memoria donde se guardan todos los datos
  * \param int limite, longitud del array
  * \param int* pIndice, direccion de memoria donde se va a guardar el espacio vacio
  * \return retorno 0(EXITO)si encuentra espacio vacio, -1(ERROR)si no
  */
 
-int cli_getEmptyIndex(Cliente* pArray, int limite,int* pIndice)
+int cli_buscarPosicionLibre(Cliente* pArray, int limite,int* pIndice)
 {
 	int retorno =-1;
 	int i;
@@ -223,26 +227,33 @@ int cli_findClienteById(Cliente* pArray, int limite, int idBuscar)
 	}
 	return retorno;
 }
-/*int cli_newClientes(Cliente* pArray, int limite)
+/*
+ *
+ */
+int cli_addNewClientes(Cliente* pArray, int limite)
 {
 	int retorno = -1;
 	int i;
+	int indice;
 	if(pArray != NULL && limite >=0)
 	{
 		for(i=0; i <limite; i++)
 		{
-			if(cli_addCliente(pArray,limite,pArray[i].idCliente,pArray[i].nombre,pArray[i].direccion,pArray[i].precio,pArray[i].tipoCliente)==0)
+			if(cli_buscarPosicionLibre(pArray, limite, &indice)==0)
+			{
+				if(cli_addCliente(pArray, limite,indice,pArray[indice].nombre, pArray[indice].apellido,pArray[indice].cuit)==0)
 				{
 					retorno=0;
-					printf("\nCarga exitosa");
 					break;
 				}
-
+			}
 		}
 	}
 	return retorno;
 }
-*/
+/*
+ *
+ */
 
 int cli_addClienteForzada(Cliente* pArray, int limite, char* name, char* apellido,char* cuit, int posicion)
 {
@@ -259,6 +270,32 @@ int cli_addClienteForzada(Cliente* pArray, int limite, char* name, char* apellid
 				pArray[posicion].isEmpty= FALSE;
 	}
 	retorno=0;
+	return retorno;
+}
+int cli_removeCliente(Cliente* pArray, int limite, int id)
+{
+	int retorno = -1;
+	int i;
+	int modificar;
+	if(pArray !=NULL && limite >=0)
+	{
+		if(utn_getNumero("\nINGRESE ID A ELIMINAR", "\nERROR", &modificar, 1,1,limite)==0)
+		{
+			id= modificar;
+			for(i=0; i < limite; i++)
+			{
+				if(cli_findClienteById(pArray, limite,id)==0)
+				 {
+							pArray[i].isEmpty = TRUE;
+							retorno=0;
+				 }
+			}
+		}
+		else
+		{
+			printf("\nERROR NO ENTRO AL IF");
+		}
+	}
 	return retorno;
 }
 
