@@ -1,0 +1,98 @@
+/*
+ * informes.c
+ *
+ *  Created on: 15 oct. 2020
+ *      Author: mariana
+ */
+
+#include <stdio_ext.h>
+#include <stdlib.h>
+#include <string.h>
+#include <limits.h>
+#include "utN.h"
+#include "publicidad.h"
+#include "cliente.h"
+#define QTY_CLIENTE 10
+#define QTY_PUBLICACION 10
+
+int pub_maxAvisos(Publicidad* pArray, Cliente* pArrayCli)
+{
+	int retorno = -1;
+	int i;
+	int j;
+	//int flagAvisos=0;
+	//int maximoAvisos;
+	if(pArray !=NULL && pArrayCli !=NULL )
+	{
+		for(i=0;i <QTY_PUBLICACION ; i++)
+		{
+			for(j=0; j<QTY_CLIENTE; j++)
+			{
+
+			}
+		}
+	}
+	return retorno;
+}
+
+int inf_contadorAvisosPausados(Publicidad* pArray,Cliente* pArrayCli)
+{
+	int retorno=-1;
+	return retorno;
+}
+
+int inf_maxRubro(Publicidad* pArray,Cliente* pArrayCli)
+{
+	int retorno=-1;
+	return retorno;
+}
+int inf_maxAvisosActivos(Publicidad* pArray,Cliente* pArrayCli)
+{
+	int retorno=-1;
+	return retorno;
+}
+int inf_maxAvisosPausados(Publicidad* pArray,Cliente* pArrayCli)
+{
+	int retorno=-1;
+	return retorno;
+}
+/*
+ * brief bajaPublicidadCliente:
+ * \param publicidad pArray, direccion de memoria donde se guardan todos los datos
+ * \param int limite, es la longitud del array
+ * \param Cliente* pArrayCliente,direccion de memoria donde se guardan todos los datos
+ * \param int limCliente, es la longitud del array cliente
+ * \return retorno 0 (EXITO) si se pudo pausar publicacion, 1 (ERROR) si no
+ */
+int inf_bajaPublicidadCliente(Publicidad* pArray,int limite,Cliente* pArrayCliente,int limCliente)
+{
+	int retorno=-1;
+	int idCliente;
+	int i;
+	char respuesta;
+	int auxiliar;
+	if(pArray !=NULL && limite >0 && pArrayCliente !=NULL && limCliente >0 &&
+		utn_getNumero("\n------INGRESE ID DEL CLIENTE A DAR DE BAJA-------\n", "\nID INVALIDO\n", &idCliente, 2, 0,limCliente)==0)
+	{
+		auxiliar = cli_findClienteById(pArrayCliente, limCliente,idCliente);
+		for(i=0; i<limite;i++)
+		{
+			if(pArray[i].idClienteAnuncio == auxiliar)
+			{
+				pub_printAvisoCliente(pArray, limite, auxiliar);
+				utn_getCaracter("\n---Desea confirmar Eliminacion  SI[s] NO[n]---\n", "\nERROR\n", &respuesta, 5, 'N', 'S');
+
+					printf("\nENTRE A LA FUNCION UTN_GETCARACTER");
+					if(respuesta =='S')
+					{
+						printf("\nNO TOMA EL CARACTER");
+						pub_removePublicidad(pArray, limite, auxiliar);
+						cli_removeCliente(pArrayCliente, limCliente, idCliente);
+						retorno=0;
+					}
+
+			}
+		}
+	}
+	return retorno;
+}

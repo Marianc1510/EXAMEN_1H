@@ -462,7 +462,7 @@ int utn_getNumeroConSigno(char* mensaje, char* mensajeError,int* pResultado,int 
  * Retorno: 0: si esta todo OK. -1: Si hubo un error
  */
 int utn_getTexto(char* mensaje, char* mensajeError,char* pResultado,int limite,int reintentos)
-{	int retorno = 0;
+{	int retorno = -1;
 	char buffer[4096];
 	if(mensaje != NULL && mensajeError !=NULL && pResultado != NULL && limite >0)
 	{

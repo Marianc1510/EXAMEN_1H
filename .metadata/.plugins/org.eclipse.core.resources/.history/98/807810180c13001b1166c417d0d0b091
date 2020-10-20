@@ -1,0 +1,290 @@
+/*
+ * nac.c
+ *
+ *  Created on: 29 sep. 2020
+ *      Author: mariana
+ */
+#include "cliente.h"
+
+#include <stdio_ext.h>
+#include <stdlib.h>
+#include <string.h>
+#include <limits.h>
+#include "utN.h"
+
+static int cli_generarIdNuevo(void);
+
+/*
+ *\brief addCliente: Agrega a una lista de empleados los valores recibidos por parametros en la primera posicion vacia
+ *\param Cliente pArray, es el puntero al array de employee direccion de memoria aguardar dichos valores
+ *\param int limite, es el limite del array
+ *\param int id, int que identifica a cada empleado
+ *\param char name, direccion de memoria que va aguardar los nombres
+ *\param char lastname, direccion de memoria que va aguardar los apellidos
+ *\param float salary
+ *\param int sector
+ *\ Retorno: 0 (EXITO) si esta todo OK. -1(ERROR) Si hubo un error
+
+*/
+int cli_addCliente(Cliente* pArray, int limite,int indice,char* nombre, char* apellido, char* cuit)
+{
+	int retorno = -1;
+	Cliente buffer;
+
+	if(pArray!= NULL && limite >= 0 && indice >=0 && indice <limite)
+	{
+
+		  if(utn_getTexto("\nINGRESE NOMBRE DEL CLIENTE:", "\nNOMBRE INCORRECTO", buffer.nombre, LIM_NOMBRE, 2)==0 &&
+			utn_getTexto("\nINGRESE APELLIDO DEL CLIENTE:", "\nAPELLIDO INCORRECTO", buffer.apellido, LIM_APELLIDO, 2)==0 &&
+			utn_getCuit("\nINGRESE CUIT DEL CLIENTE", "\nCUIT INVALIDO", buffer.cuit,1, LIM_CUIT)==0)
+				{
+			  	  	buffer.idCliente = cli_generarIdNuevo();
+					pArray[indice] = buffer;
+					pArray[indice].isEmpty = FALSE;
+
+					retorno=0;
+				}
+	}
+	return retorno;
+}
+
+static int cli_generarIdNuevo(void)
+{
+	static int id=0;
+	id= id+1;
+	return id;
+}
+/*
+ * \brief initEnployees: inicializa el array indicando que todas las posiciones esten vacias
+ * \param pArray, array de Cliente a ser actualizado
+ * \param int limite, la longitud del limite del array de employee
+ * \return retorno 0 (EXITO) si esta todo bien, -1 (ERROR) si no
+ */
+int cli_initClientes(Cliente* pArray, int limite)
+{
+	int retorno = -1;
+	if(pArray != NULL && limite > 0)
+	{
+		for(int i=0; i< limite; i ++)
+		{
+			pArray[i].isEmpty = TRUE;
+		}
+		retorno =0;
+	}
+
+	return retorno;
+}
+/*
+ * brief printClientes: Imprime el array de empleados de manera columnada
+ * \param Cliente* pArray,  direccion de memoria donde se guardan todos los datos
+ * \param int limite, longitud del array
+ * \return retorno 0(EXITO) se pudo imprimir, -1(ERROR) si no
+ */
+int cli_printClientes(Cliente* pArray, int limite)
+{
+	int retorno = -1;
+	if(pArray != NULL && limite > 0)
+	{
+		printf("\n----------------------------------------------------------"
+			   "\n ID   | NOMBRE    | APELLIDO    | CUIT        "
+			   "\n----------------------------------------------------------");
+		for(int i=0; i< limite; i ++)
+		{
+			if(pArray[i].isEmpty == FALSE)
+			{
+				printf("\n %d    |%s     |%s     |%s  \n", pArray[i].idCliente,pArray[i].nombre,pArray[i].apellido,pArray[i].cuit);
+			}
+		}
+		retorno = 0;
+	}
+	return retorno;
+}
+int cli_modificaCliente(Cliente* pArray, int limite)
+{
+	int retorno = -1;
+	int indiceBuscado;
+	int modificar;
+	Cliente buffer;
+
+	if(pArray !=NULL && limite >= 0)
+	{
+		utn_getNumero("\n------INGRESE ID DEL CLIENTE A MODIFICAR------", "\nERROR", &modificar, 1,1,limite);
+		indiceBuscado=cli_findClienteById(pArray, limite, modificar);
+			if( indiceBuscado !=-1 &&
+				utn_getTexto("\nINGRESE NOMBRE A MODIFICAR:", "\nNOMBRE INCORRECTO", buffer.nombre, LIM_NOMBRE, 2)==0 &&
+				utn_getTexto("\nINGRESE APELLIDO A MODIFICAR:", "\nAPELLIDO INCORRECTO", buffer.apellido,LIM_APELLIDO, 2)==0 &&
+				utn_getCuit("\nINGRESE CUIT A MODIFICAR", "\nCUIT INVALIDO", buffer.cuit,2,LIM_CUIT)==0)
+					{
+						buffer.idCliente= pArray[indiceBuscado].idCliente;
+						buffer.isEmpty=pArray[indiceBuscado].isEmpty;
+						pArray[indiceBuscado]=buffer;
+						printf("\n--------------------------------------------------------------"
+							   "\n                 Se modifico con exito          \n"
+							   "----------------------------------------------------------------\n");
+						retorno=0;
+					}
+			else
+			{
+				printf("\n --------------------------------------------"
+					   "\n              Dato incorrecto       \n"
+					   "---------------------------------------------\n");
+			}
+	}
+	return retorno;
+}
+/*
+ * brief sortClientes: recorre el array ordenando a los empleados por los apellidos y sector de manera ascendente
+ * \param Cliente* pArray,  direccion de memoria donde se guardan todos los datos
+ * \param int limite, longitud del array
+ * \param int orden, valor que indica de que manera a ordenar 1 (UP,ascendente), 0(DOWN, descendente)
+ * \return retorno 0(exito) si se pudo ordenar, -1 (ERROR) si no
+ */
+/*
+int cli_sortClientes(Cliente* pArray, int limite, int orden)
+{
+	int retorno = -1;
+	int i;
+	int flagSwap;
+	Cliente buffer;
+	if(pArray != NULL && limite >= 0 && (orden ==0 || orden ==1))
+	{
+		do
+		{
+			flagSwap=0;
+			for(i=0;i<limite-1;i++)
+			{
+				if(pArray[i].isEmpty == FALSE && pArray[i+1].isEmpty == FALSE)
+				{
+					if((orden == 1 && strncmp(pArray[i].nombre,pArray[i+1].nombre,LONG_MLASTNAME) > 0) ||
+					   (orden == 0 && strncmp(pArray[i].nombre,pArray[i+1].nombre,LONG_LASTNAME) < 0)==0 ||
+					   ((orden ==1 && pArray[i].sector == pArray[i+1].sector) > 0) ||
+					   ((orden ==0 && pArray[i].sector == pArray[i+1].sector) < 1 ))
+					{
+						buffer=pArray[i];
+						pArray[i]=pArray[i+1];
+						pArray[i+1]=buffer;
+						flagSwap =1;
+					}
+				}
+			}
+		}while(flagSwap);
+	}
+	return retorno;
+}
+*/
+/*
+ * brief buscarPosicionLibre: recorre el array buscando una posicion vacia
+ * \param Cliente* pArray, direccion de memoria donde se guardan todos los datos
+ * \param int limite, longitud del array
+ * \param int* pIndice, direccion de memoria donde se va a guardar el espacio vacio
+ * \return retorno 0(EXITO)si encuentra espacio vacio, -1(ERROR)si no
+ */
+
+int cli_buscarPosicionLibre(Cliente* pArray, int limite,int* pIndice)
+{
+	int retorno =-1;
+	int i;
+
+	if(pArray != NULL && limite > 0 && pIndice!=NULL)
+	{
+		for(i=0; i<limite; i++)
+		{
+			if(pArray[i].isEmpty == TRUE)
+			{
+				*pIndice=i;
+				retorno=0;
+				break;
+			}
+		}
+	}
+	return retorno;
+}
+/*
+ * \brief findClienteById: recorre el array buscando por su ID
+ * \param Cliente* pArray, direccion de memoria donde se guardan todos los datos
+ * \param int limite, es la longitud del array
+ * \param int idBuscar, valor cual debemos buscar en el array
+ * \return retorno la posicion en cual se encuentra el array, devolviendo el valor buscado.
+ */
+int cli_findClienteById(Cliente* pArray, int limite, int idBuscar)
+{
+	int retorno =-1;
+	int i;
+
+	if(pArray != NULL && limite > 0  && idBuscar >=0 )
+	{
+		for(i=0; i<limite; i++)
+		{
+			if(pArray[i].idCliente == idBuscar && pArray[i].isEmpty == TRUE)
+			{
+				retorno = i;
+				break;
+			}
+		}
+	}
+	return retorno;
+}
+/*
+ *
+ */
+int cli_addNewClientes(Cliente* pArray, int limite)
+{
+	int retorno = -1;
+	int i;
+	int indice;
+	if(pArray != NULL && limite >=0)
+	{
+		for(i=0; i <limite; i++)
+		{
+			if(cli_buscarPosicionLibre(pArray, limite, &indice)==0)
+			{
+				if(cli_addCliente(pArray, limite,indice,pArray[indice].nombre, pArray[indice].apellido,pArray[indice].cuit)==0)
+				{
+					retorno=0;
+					break;
+				}
+			}
+		}
+	}
+	return retorno;
+}
+/*
+ *
+ */
+
+int cli_addClienteForzada(Cliente* pArray, int limite, char* name, char* apellido,char* cuit, int posicion)
+{
+	int retorno = -1;
+	Cliente buffer;
+
+	if(pArray !=NULL && name !=NULL && apellido !=NULL && cuit !=NULL && limite >0 && posicion <=limite)
+	{
+				strncpy(buffer.nombre,name,LIM_NOMBRE);
+				strncpy(buffer.apellido,apellido,LIM_APELLIDO);
+				strncpy(buffer.cuit,cuit,LIM_CUIT);
+				buffer.idCliente= cli_generarIdNuevo();
+				pArray[posicion]=buffer;
+				pArray[posicion].isEmpty= FALSE;
+	}
+	retorno=0;
+	return retorno;
+}
+int cli_removeCliente(Cliente* pArray, int limite, int id)
+{
+	int retorno = -1;
+	int i;
+	int modificar;
+	if(pArray !=NULL && limite >=0)
+	{
+			for(i=0; i < limite; i++)
+			{
+				if(pArray[i].isEmpty == FALSE && pArray[i].idCliente == id)
+				 {
+							pArray[i].isEmpty = TRUE;
+							retorno=0;
+				 }
+			}
+	}
+	return retorno;
+}
+

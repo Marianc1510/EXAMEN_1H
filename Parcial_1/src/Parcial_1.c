@@ -13,29 +13,29 @@
 #include "utN.h"
 #include "cliente.h"
 #include "publicidad.h"
+#include "informes.h"
 #define QTY_CLIENTE 10
 #define QTY_PUBLICACION 10
 
 int main(void) {
-	Publicidad pArrayPublicidad[QTY_PUBLICACION];
 	Cliente pArrayCliente[QTY_CLIENTE];
+	Publicidad pArrayPublicidad[QTY_PUBLICACION];
+
 	int opcion;
 	int auxiliarIndice;
 	//int auxiliarId;
 	int auxiliarCliente;
+	char opcion2;
 
 	if(pub_initPublicidads(pArrayPublicidad, QTY_PUBLICACION)==0 &&
 	   cli_initClientes(pArrayCliente, QTY_CLIENTE)==0){
 		printf("\nSe inicializo los arrays Cliente y AVISOS");
-
-		cli_addClienteForzada(pArrayCliente, QTY_CLIENTE, "Mariana", "gomez","20666689633", 1);
-		cli_addClienteForzada(pArrayCliente, QTY_CLIENTE, "lucia", "Cardozo","20407859633", 2);
-		cli_addClienteForzada(pArrayCliente, QTY_CLIENTE, "Rocio", "Pucheta","20397852037", 3);
-		cli_addClienteForzada(pArrayCliente, QTY_CLIENTE, "RITA", "PEREZ","27407851231", 4);
-		pub_addPublicidadForzada(pArrayPublicidad, QTY_PUBLICACION, 23, "Promo Heladera", 1, 1);
-		pub_addPublicidadForzada(pArrayPublicidad, QTY_PUBLICACION, 12, "Coca cola", 2, 2);
-		pub_addPublicidadForzada(pArrayPublicidad, QTY_PUBLICACION, 40, "Mozzarella", 1, 3);
-
+		cli_addClienteForzada(pArrayCliente, QTY_CLIENTE, "Mariana", "gomez","20666689633", 0);
+		cli_addClienteForzada(pArrayCliente, QTY_CLIENTE, "lucia", "Cardozo","20407859633", 1);
+		cli_addClienteForzada(pArrayCliente, QTY_CLIENTE, "Rocio", "Pucheta","20397852037", 2);
+		pub_addPublicidadForzada(pArrayPublicidad, QTY_PUBLICACION, 23, "Promo Heladera", 1, 0);
+		pub_addPublicidadForzada(pArrayPublicidad, QTY_PUBLICACION, 12, "Coca cola", 2, 1);
+		pub_addPublicidadForzada(pArrayPublicidad, QTY_PUBLICACION, 40, "Mozzarella", 1, 2);
 		do{
 			if(utn_getNumero("\n-----MENU PUBLICACIONES----\n"
 							"1)Alta Cliente\n"
@@ -45,7 +45,7 @@ int main(void) {
 							"5)Pausar publicacion\n"
 							"6)Reanudar publicacion\n"
 							"7)Imprimir\n"
-							"8)Informar\n","OPCION INVALIDA\n", &opcion, 2, 1,8)==0)
+							"8)Informar\n","OPCION INVALIDA\n", &opcion, 10, 1,8)==0)
 			{
 				switch(opcion)
 				{
@@ -71,15 +71,13 @@ int main(void) {
 					break;
 				case 3:
 						cli_printClientes(pArrayCliente, QTY_CLIENTE);
-						if(pub_bajaPublicidadCliente(pArrayPublicidad, QTY_PUBLICACION, pArrayCliente, QTY_CLIENTE)==0)
+						if(pub_bajaPublicidadCliente(pArrayPublicidad,QTY_PUBLICACION,pArrayCliente,QTY_CLIENTE)==0)
 						{
 							printf("\nBAJA EXITOSA");
-							cli_printClientes(pArrayCliente, QTY_CLIENTE);
 						}
 						else
 						{
-							printf("\nDATO INVALIDO");
-
+							printf("\nNO SE PUDO DAR LA BAJA");
 						}
 					break;
 				case 4:
@@ -104,28 +102,63 @@ int main(void) {
 					}
 					break;
 				case 5:
-					if(pub_pausarPublicacion(pArrayPublicidad, QTY_PUBLICACION)==0)
-					{
-						printf("\nSU AVISO CAMBIO AL ESTADO PAUSADO");
-						pub_printPublicidads(pArrayPublicidad, QTY_PUBLICACION);
-					}
-					else
-					{
-						printf("\nNO SE PUDO MODIFICAR SU ESTADO");
-					}
+					pub_pausarPublicacion(pArrayPublicidad, QTY_PUBLICACION);
 					break;
 				case 6:
+					pub_reanudarPublicacion(pArrayPublicidad, QTY_PUBLICACION);
 					break;
 				case 7:
-					pub_printPublicidads(pArrayPublicidad, QTY_PUBLICACION);
-
+					pub_printDatosCompletos(pArrayPublicidad, QTY_PUBLICACION, pArrayCliente, QTY_CLIENTE);
 					break;
 				case 8:
+					/*
+					 * d) Imprimir lista de rubros ordenados de menor a mayor (sin repetir)
+					 * e) Cantidad de avisos activos totales
+					 * f) Cliente con menos avisos
+					 * g) Cantidad por rubro: Ingresar por consola un numero de rubro e imprimir la cantidad de avisos que existen de dicho rubro.
+					 * h) Cantidad por cliente: Ingresar por consola un cuit e imprimir la cantidad de avisos que existen de dicho cliente.
+					 */
+					if(utn_getCaracter("\n*******SUBMENU********\n"
+										"A)CLIENTE CON MAS AVISOS\n"
+										"B)CANTIDAD DE AVISOS PAUSADOS\n"
+										"C)RUBRO CON MAS AVISOS\n"
+										"D)CLIENTE CON AVISOS MAS ACTIVOS\n"
+										"E)CLIENTE CON AVISOS MAS PAUSADOS\n"
+										"F)IMPRIMIR LISTA DE RUBROS ORDENADOS DE MENOR A MAYOR\n"
+										"G)CANTIDAD DE AVISOS ACTIVOS TOTALES\n"
+										"H)CLIENTE CON MENOS AVISOS\n"
+										"I)CANTIDAD POR RUBROS\n"
+										"J)CANTIDAD POR CLIENTE\n", "\nOPCION INVALIDA\n", &opcion2,2, 'A', 'J')==0)
+					{
+						switch(opcion2)
+						{
+						case 'A':
+							break;
+						case 'B':
+							break;
+						case 'C':
+							break;
+						case 'D':
+							break;
+						case 'E':
+							break;
+						case 'F':
+							break;
+						case 'G':
+							break;
+						case 'H':
+							break;
+						case 'I':
+							break;
+						case 'J':
+							break;
+						}
+					}
 					break;
 				}
 			}
 
-		}while(opcion <=8);
+		}while(opcion <='h');
 	}
 
 	return EXIT_SUCCESS;

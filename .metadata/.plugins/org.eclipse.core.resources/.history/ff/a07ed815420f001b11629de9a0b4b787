@@ -1,0 +1,35 @@
+/*
+ * informes.c
+ *
+ *  Created on: 15 oct. 2020
+ *      Author: mariana
+ */
+
+#include <stdio_ext.h>
+#include <stdlib.h>
+#include <string.h>
+#include <limits.h>
+#include "utN.h"
+#include "publicidad.h"
+#include "cliente.h"
+
+
+int pub_maxAvisos(Publicidad* pArray, Cliente* pArrayCli)
+{
+	int retorno = -1;
+	int i;
+	int contador=0;
+	int acumulador=0;
+	int maximoAvisos;
+	if(pArray !=NULL && pArrayCli !=NULL )
+	{
+		for(i=0;i < ; i++)
+		{
+			if(pArray[i].idPublicidad == maximoAvisos)
+			{
+
+			}
+		}
+	}
+	return retorno;
+}

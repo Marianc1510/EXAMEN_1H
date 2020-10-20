@@ -7,7 +7,14 @@
 
 #ifndef PUBLICIDAD_H_
 #define PUBLICIDAD_H_
+
+#include <stdio_ext.h>
+#include <stdlib.h>
+#include <string.h>
+#include <limits.h>
+#include "utN.h"
 #include "cliente.h"
+
 #define LIM_CARACTER 256
 #define TRUE 1
 #define FALSE 0
@@ -33,7 +40,10 @@ int pub_buscarLibreRef(Publicidad* pArray, int limite, int* pIndice);
 int pub_findPublicidadById(Publicidad* pArray, int limite, int idBuscar);
 int pub_addPublicidadForzada(Publicidad* pArray, int limite,int numeroRubro,char* texto,int idCliente, int posicion);
 int pub_printAvisoCliente(Publicidad* pArray, int limite,int valorBuscado);
-int pub_cambiarEstado(Publicidad* pArray, int limite,int* estado);
+int pub_cambiarEstado(Publicidad* pArray,int indice,int estadoACambiar);
 int pub_pausarPublicacion(Publicidad* pArray, int limite);
+int pub_reanudarPublicacion(Publicidad* pArray, int limite);
+int pub_bajaPublicidadCliente(Publicidad* pArray,int limite,Cliente* pArrayCliente,int limCliente);
+int pub_printDatosCompletos(Publicidad* pArray, int limite, Cliente* pArrayCliente, int limCliente);
 
 #endif /* PUBLICIDAD_H_ */

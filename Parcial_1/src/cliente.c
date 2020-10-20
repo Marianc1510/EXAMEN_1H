@@ -11,9 +11,6 @@
 #include <string.h>
 #include <limits.h>
 #include "utN.h"
-#include "publicidad.h"
-#define TRUE 1
-#define FALSE 0
 
 static int cli_generarIdNuevo(void);
 
@@ -218,7 +215,7 @@ int cli_findClienteById(Cliente* pArray, int limite, int idBuscar)
 	{
 		for(i=0; i<limite; i++)
 		{
-			if(pArray[i].idCliente == idBuscar)
+			if(pArray[i].idCliente == idBuscar && pArray[i].isEmpty == FALSE)
 			{
 				retorno = i;
 				break;
@@ -276,25 +273,16 @@ int cli_removeCliente(Cliente* pArray, int limite, int id)
 {
 	int retorno = -1;
 	int i;
-	int modificar;
 	if(pArray !=NULL && limite >=0)
 	{
-		if(utn_getNumero("\nINGRESE ID A ELIMINAR", "\nERROR", &modificar, 1,1,limite)==0)
-		{
-			id= modificar;
 			for(i=0; i < limite; i++)
 			{
-				if(cli_findClienteById(pArray, limite,id)==0)
+				if(pArray[i].isEmpty == FALSE && pArray[i].idCliente == id)
 				 {
 							pArray[i].isEmpty = TRUE;
 							retorno=0;
 				 }
 			}
-		}
-		else
-		{
-			printf("\nERROR NO ENTRO AL IF");
-		}
 	}
 	return retorno;
 }

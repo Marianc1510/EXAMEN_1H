@@ -7,10 +7,11 @@
 
 #ifndef CLIENTE_H_
 #define CLIENTE_H_
-#include "publicidad.h"
 #define LIM_NOMBRE 51
 #define LIM_APELLIDO 51
 #define LIM_CUIT 14
+#define TRUE 1
+#define FALSE 0
 
 typedef struct
 {

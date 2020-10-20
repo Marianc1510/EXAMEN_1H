@@ -1,0 +1,100 @@
+/*
+ * informes.c
+ *
+ *  Created on: 15 oct. 2020
+ *      Author: mariana
+ */
+
+#include <stdio_ext.h>
+#include <stdlib.h>
+#include <string.h>
+#include <limits.h>
+#include "utN.h"
+#include "publicidad.h"
+#include "cliente.h"
+#define QTY_CLIENTE 10
+#define QTY_PUBLICACION 10
+
+int pub_maxAvisos(Publicidad* pArray, Cliente* pArrayCli)
+{
+	int retorno = -1;
+	int i;
+	int j;
+	//int flagAvisos=0;
+	//int maximoAvisos;
+	if(pArray !=NULL && pArrayCli !=NULL )
+	{
+		for(i=0;i <QTY_PUBLICACION ; i++)
+		{
+			pub_printPublicidads(pArray, QTY_PUBLICACION);
+			for(j=0; j<QTY_CLIENTE; j++)
+			{
+
+			}
+		}
+	}
+	return retorno;
+}
+
+int inf_contadorAvisosPausados(Publicidad* pArray,Cliente* pArrayCli)
+{
+	int retorno=-1;
+	return retorno;
+}
+
+int inf_maxRubro(Publicidad* pArray,Cliente* pArrayCli)
+{
+	int retorno=-1;
+	return retorno;
+}
+int inf_maxAvisosActivos(Publicidad* pArray,Cliente* pArrayCli)
+{
+	int retorno=-1;
+	return retorno;
+}
+int inf_maxAvisosPausados(Publicidad* pArray,Cliente* pArrayCli)
+{
+	int retorno=-1;
+	return retorno;
+}
+/*
+ * brief bajaPublicidadCliente:
+ * \param publicidad pArray, direccion de memoria donde se guardan todos los datos
+ * \param int limite, es la longitud del array
+ * \param Cliente* pArrayCliente,direccion de memoria donde se guardan todos los datos
+ * \param int limCliente, es la longitud del array cliente
+ * \return retorno 0 (EXITO) si se pudo pausar publicacion, 1 (ERROR) si no
+ */
+int inf_bajaPublicidadCliente(Publicidad* pArray,int limP,Cliente* pArrayCliente,int limC)
+{
+	int retorno=-1;
+	int idCliente;
+	int i;
+	char respuesta[3];
+	int indice;
+	if(pArray !=NULL && limP >0 && pArrayCliente !=NULL && limC >0  &&
+		utn_getNumero("\n------INGRESE ID DEL CLIENTE A DAR DE BAJA-------\n", "\nID INVALIDO\n", &idCliente, 2, 0,limC)==0)
+	{
+		indice = cli_findClienteById(pArrayCliente, limC,idCliente);
+		if(indice >=0 && pArrayCliente[indice].isEmpty ==0)
+		{
+				for(i=0; i<limP;i++)
+				{
+					if(pArray[i].idClienteAnuncio == idCliente)
+					{
+						pub_printAvisoCliente(pArray, limP, indice);
+						utn_getTexto("\n-----¿DESEA CONFIRMAR ELIMINACION?  SI / NO --------\n", "\nDATO INVALIDO\n",respuesta,3,1);
+						if(respuesta == 0)
+							{
+								pArrayCliente[indice].isEmpty = 1;
+								pArray[i].idClienteAnuncio =pub_removePublicidad(pArray,limP,indice);
+								pArray[i].idClienteAnuncio =cli_removeCliente(pArrayCliente,limC,idCliente);
+								retorno=0;
+									break;
+							}
+					}
+				}
+		}
+	}
+	return retorno;
+}

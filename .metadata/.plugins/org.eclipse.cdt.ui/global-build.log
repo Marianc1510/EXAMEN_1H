@@ -1,28 +1,4 @@
-16:33:34 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-make: No se hace nada para 'all'.
-16:33:38 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-make: No se hace nada para 'all'.
-16:34:34 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-Building file: ../src/Parcial_1.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Parcial_1.d" -MT"src/Parcial_1.o" -o "src/Parcial_1.o" "../src/Parcial_1.c"
-Finished building: ../src/Parcial_1.c
- 
-Building target: Parcial_1
-Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
-Finished building target: Parcial_1
- 
-16:34:38 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-make: No se hace nada para 'all'.
-16:34:57 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-make: No se hace nada para 'all'.
-16:36:39 **** Incremental Build of configuration Debug for project Parcial_1 ****
+16:35:51 **** Incremental Build of configuration Debug for project Parcial_1 ****
 make all 
 Building file: ../src/publicidad.c
 Invoking: GCC C Compiler
@@ -31,13 +7,13 @@ Finished building: ../src/publicidad.c
  
 Building target: Parcial_1
 Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
+gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/informes.o ./src/publicidad.o ./src/utN.o   
 Finished building target: Parcial_1
  
-16:36:42 **** Incremental Build of configuration Debug for project Parcial_1 ****
+16:35:57 **** Incremental Build of configuration Debug for project Parcial_1 ****
 make all 
 make: No se hace nada para 'all'.
-16:38:37 **** Incremental Build of configuration Debug for project Parcial_1 ****
+16:38:33 **** Incremental Build of configuration Debug for project Parcial_1 ****
 make all 
 Building file: ../src/publicidad.c
 Invoking: GCC C Compiler
@@ -46,48 +22,13 @@ Finished building: ../src/publicidad.c
  
 Building target: Parcial_1
 Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
+gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/informes.o ./src/publicidad.o ./src/utN.o   
 Finished building target: Parcial_1
  
-16:38:40 **** Incremental Build of configuration Debug for project Parcial_1 ****
+16:38:38 **** Incremental Build of configuration Debug for project Parcial_1 ****
 make all 
 make: No se hace nada para 'all'.
-16:40:32 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-Building file: ../src/Parcial_1.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Parcial_1.d" -MT"src/Parcial_1.o" -o "src/Parcial_1.o" "../src/Parcial_1.c"
-Finished building: ../src/Parcial_1.c
- 
-Building file: ../src/publicidad.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/publicidad.d" -MT"src/publicidad.o" -o "src/publicidad.o" "../src/publicidad.c"
-Finished building: ../src/publicidad.c
- 
-Building target: Parcial_1
-Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
-Finished building target: Parcial_1
- 
-16:40:36 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-make: No se hace nada para 'all'.
-16:41:45 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-Building file: ../src/Parcial_1.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Parcial_1.d" -MT"src/Parcial_1.o" -o "src/Parcial_1.o" "../src/Parcial_1.c"
-Finished building: ../src/Parcial_1.c
- 
-Building target: Parcial_1
-Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
-Finished building target: Parcial_1
- 
-16:41:51 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-make: No se hace nada para 'all'.
-16:42:47 **** Incremental Build of configuration Debug for project Parcial_1 ****
+16:39:46 **** Incremental Build of configuration Debug for project Parcial_1 ****
 make all 
 Building file: ../src/publicidad.c
 Invoking: GCC C Compiler
@@ -96,79 +37,21 @@ Finished building: ../src/publicidad.c
  
 Building target: Parcial_1
 Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
+gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/informes.o ./src/publicidad.o ./src/utN.o   
 Finished building target: Parcial_1
  
-16:42:52 **** Incremental Build of configuration Debug for project Parcial_1 ****
+16:39:50 **** Incremental Build of configuration Debug for project Parcial_1 ****
 make all 
 make: No se hace nada para 'all'.
-16:43:21 **** Incremental Build of configuration Debug for project Parcial_1 ****
+16:40:37 **** Incremental Build of configuration Debug for project Parcial_1 ****
 make all 
-Building file: ../src/publicidad.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/publicidad.d" -MT"src/publicidad.o" -o "src/publicidad.o" "../src/publicidad.c"
-../src/publicidad.c: In function ‘pub_pausarPublicacion’:
-../src/publicidad.c:319:104: warning: passing argument 3 of ‘utn_getCaracter’ makes pointer from integer without a cast [-Wint-conversion]
-  319 |    if(utn_getCaracter("\n----¿DESEA CAMBIAR EL ESTADO A 'PAUSADO' SI[s] NO[n]?------\n", "\nERROR\n", respuesta, 1, 'n', 's')==0)
-      |                                                                                                        ^~~~~~~~~
-      |                                                                                                        |
-      |                                                                                                        char
-In file included from ../src/publicidad.c:14:
-../src/utN.h:15:61: note: expected ‘char *’ but argument is of type ‘char’
-   15 | int utn_getCaracter(char* mensaje, char* mensajeError,char* pResultado,int reintentos,char min, char max);
-      |                                                       ~~~~~~^~~~~~~~~~
-../src/publicidad.c:319:7: warning: ‘respuesta’ may be used uninitialized in this function [-Wmaybe-uninitialized]
-  319 |    if(utn_getCaracter("\n----¿DESEA CAMBIAR EL ESTADO A 'PAUSADO' SI[s] NO[n]?------\n", "\nERROR\n", respuesta, 1, 'n', 's')==0)
-      |       ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Finished building: ../src/publicidad.c
- 
-Building target: Parcial_1
-Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
-Finished building target: Parcial_1
- 
-16:43:56 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-Building file: ../src/publicidad.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/publicidad.d" -MT"src/publicidad.o" -o "src/publicidad.o" "../src/publicidad.c"
-Finished building: ../src/publicidad.c
- 
-Building target: Parcial_1
-Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
-Finished building target: Parcial_1
- 
-16:45:16 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-Building file: ../src/publicidad.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/publicidad.d" -MT"src/publicidad.o" -o "src/publicidad.o" "../src/publicidad.c"
-Finished building: ../src/publicidad.c
- 
-Building target: Parcial_1
-Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
-Finished building target: Parcial_1
- 
-16:45:19 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-make: No se hace nada para 'all'.
-16:51:28 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-Building file: ../src/Parcial_1.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Parcial_1.d" -MT"src/Parcial_1.o" -o "src/Parcial_1.o" "../src/Parcial_1.c"
-Finished building: ../src/Parcial_1.c
- 
-Building file: ../src/calculos.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/calculos.d" -MT"src/calculos.o" -o "src/calculos.o" "../src/calculos.c"
-Finished building: ../src/calculos.c
- 
 Building file: ../src/cliente.c
 Invoking: GCC C Compiler
 gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/cliente.d" -MT"src/cliente.o" -o "src/cliente.o" "../src/cliente.c"
+../src/cliente.c: In function ‘cli_removeCliente’:
+../src/cliente.c:276:6: warning: unused variable ‘modificar’ [-Wunused-variable]
+  276 |  int modificar;
+      |      ^~~~~~~~~
 Finished building: ../src/cliente.c
  
 Building file: ../src/publicidad.c
@@ -178,455 +61,21 @@ Finished building: ../src/publicidad.c
  
 Building target: Parcial_1
 Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
+gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/informes.o ./src/publicidad.o ./src/utN.o   
 Finished building target: Parcial_1
  
-16:51:32 **** Incremental Build of configuration Debug for project Parcial_1 ****
+16:40:53 **** Incremental Build of configuration Debug for project Parcial_1 ****
 make all 
-make: No se hace nada para 'all'.
-16:54:10 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-make: No se hace nada para 'all'.
-16:54:13 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-make: No se hace nada para 'all'.
-16:55:36 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-Building file: ../src/publicidad.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/publicidad.d" -MT"src/publicidad.o" -o "src/publicidad.o" "../src/publicidad.c"
-Finished building: ../src/publicidad.c
- 
-Building target: Parcial_1
-Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
-Finished building target: Parcial_1
- 
-16:55:40 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-make: No se hace nada para 'all'.
-16:56:05 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-make: No se hace nada para 'all'.
-16:56:58 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-make: No se hace nada para 'all'.
-17:02:29 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-Building file: ../src/publicidad.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/publicidad.d" -MT"src/publicidad.o" -o "src/publicidad.o" "../src/publicidad.c"
-Finished building: ../src/publicidad.c
- 
-Building target: Parcial_1
-Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
-Finished building target: Parcial_1
- 
-17:02:33 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-make: No se hace nada para 'all'.
-17:03:25 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-Building file: ../src/publicidad.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/publicidad.d" -MT"src/publicidad.o" -o "src/publicidad.o" "../src/publicidad.c"
-Finished building: ../src/publicidad.c
- 
-Building target: Parcial_1
-Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
-Finished building target: Parcial_1
- 
-17:03:28 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-make: No se hace nada para 'all'.
-17:04:38 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-Building file: ../src/publicidad.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/publicidad.d" -MT"src/publicidad.o" -o "src/publicidad.o" "../src/publicidad.c"
-Finished building: ../src/publicidad.c
- 
-Building target: Parcial_1
-Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
-Finished building target: Parcial_1
- 
-17:04:41 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-make: No se hace nada para 'all'.
-17:08:04 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-Building file: ../src/publicidad.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/publicidad.d" -MT"src/publicidad.o" -o "src/publicidad.o" "../src/publicidad.c"
-Finished building: ../src/publicidad.c
- 
-Building target: Parcial_1
-Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
-Finished building target: Parcial_1
- 
-17:08:08 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-make: No se hace nada para 'all'.
-17:10:20 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-Building file: ../src/publicidad.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/publicidad.d" -MT"src/publicidad.o" -o "src/publicidad.o" "../src/publicidad.c"
-Finished building: ../src/publicidad.c
- 
-Building target: Parcial_1
-Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
-Finished building target: Parcial_1
- 
-17:10:23 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-make: No se hace nada para 'all'.
-17:15:48 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-Building file: ../src/publicidad.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/publicidad.d" -MT"src/publicidad.o" -o "src/publicidad.o" "../src/publicidad.c"
-Finished building: ../src/publicidad.c
- 
-Building target: Parcial_1
-Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
-Finished building target: Parcial_1
- 
-17:15:51 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-make: No se hace nada para 'all'.
-17:17:46 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-Building file: ../src/publicidad.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/publicidad.d" -MT"src/publicidad.o" -o "src/publicidad.o" "../src/publicidad.c"
-../src/publicidad.c: In function ‘pub_printPublicidads’:
-../src/publicidad.c:107:12: warning: too many arguments for format [-Wformat-extra-args]
-  107 |     printf("\n %d        |%d        |%s          |%d \n", pArray[i].idPublicidad,pArray[i].numeroRubro,pArray[i].textoAviso,pArray[i].idClienteAnuncio,pArray[i].isState);
-      |            ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-Finished building: ../src/publicidad.c
- 
-Building target: Parcial_1
-Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
-Finished building target: Parcial_1
- 
-17:18:07 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-Building file: ../src/publicidad.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/publicidad.d" -MT"src/publicidad.o" -o "src/publicidad.o" "../src/publicidad.c"
-Finished building: ../src/publicidad.c
- 
-Building target: Parcial_1
-Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
-Finished building target: Parcial_1
- 
-17:18:12 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-make: No se hace nada para 'all'.
-17:19:31 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-make: No se hace nada para 'all'.
-17:19:34 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-make: No se hace nada para 'all'.
-17:22:09 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-Building file: ../src/publicidad.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/publicidad.d" -MT"src/publicidad.o" -o "src/publicidad.o" "../src/publicidad.c"
-Finished building: ../src/publicidad.c
- 
-Building target: Parcial_1
-Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
-Finished building target: Parcial_1
- 
-17:22:12 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-make: No se hace nada para 'all'.
-17:28:22 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-Building file: ../src/publicidad.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/publicidad.d" -MT"src/publicidad.o" -o "src/publicidad.o" "../src/publicidad.c"
-../src/publicidad.c: In function ‘pub_printPublicidads’:
-../src/publicidad.c:109:61: warning: format ‘%d’ expects argument of type ‘int’, but argument 6 has type ‘const char *’ [-Wformat=]
-  109 |     printf("\n %d        |%d        |%s          |%d      |%d \n", pArray[i].idPublicidad,pArray[i].numeroRubro,pArray[i].textoAviso,pArray[i].idClienteAnuncio,TXT_ESTADO[pArray->isState]);
-      |                                                            ~^                                                                                                   ~~~~~~~~~~~~~~~~~~~~~~~~~~~
-      |                                                             |                                                                                                             |
-      |                                                             int                                                                                                           const char *
-      |                                                            %s
-Finished building: ../src/publicidad.c
- 
-Building target: Parcial_1
-Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
-Finished building target: Parcial_1
- 
-17:28:36 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-Building file: ../src/publicidad.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/publicidad.d" -MT"src/publicidad.o" -o "src/publicidad.o" "../src/publicidad.c"
-Finished building: ../src/publicidad.c
- 
-Building target: Parcial_1
-Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
-Finished building target: Parcial_1
- 
-17:28:40 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-make: No se hace nada para 'all'.
-17:29:41 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-Building file: ../src/publicidad.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/publicidad.d" -MT"src/publicidad.o" -o "src/publicidad.o" "../src/publicidad.c"
-Finished building: ../src/publicidad.c
- 
-Building target: Parcial_1
-Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
-Finished building target: Parcial_1
- 
-17:29:45 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-make: No se hace nada para 'all'.
-17:29:46 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-make: No se hace nada para 'all'.
-17:31:17 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-Building file: ../src/publicidad.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/publicidad.d" -MT"src/publicidad.o" -o "src/publicidad.o" "../src/publicidad.c"
-Finished building: ../src/publicidad.c
- 
-Building target: Parcial_1
-Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
-Finished building target: Parcial_1
- 
-17:31:21 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-make: No se hace nada para 'all'.
-17:32:46 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-Building file: ../src/publicidad.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/publicidad.d" -MT"src/publicidad.o" -o "src/publicidad.o" "../src/publicidad.c"
-Finished building: ../src/publicidad.c
- 
-Building target: Parcial_1
-Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
-Finished building target: Parcial_1
- 
-17:57:57 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-Building file: ../src/Parcial_1.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Parcial_1.d" -MT"src/Parcial_1.o" -o "src/Parcial_1.o" "../src/Parcial_1.c"
-Finished building: ../src/Parcial_1.c
- 
-Building file: ../src/calculos.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/calculos.d" -MT"src/calculos.o" -o "src/calculos.o" "../src/calculos.c"
-Finished building: ../src/calculos.c
- 
 Building file: ../src/cliente.c
 Invoking: GCC C Compiler
 gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/cliente.d" -MT"src/cliente.o" -o "src/cliente.o" "../src/cliente.c"
 Finished building: ../src/cliente.c
  
-Building file: ../src/publicidad.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/publicidad.d" -MT"src/publicidad.o" -o "src/publicidad.o" "../src/publicidad.c"
-../src/publicidad.c: In function ‘pub_cambiarEstado’:
-../src/publicidad.c:252:35: warning: argument to ‘sizeof’ in ‘strncpy’ call is the same expression as the destination; did you mean to provide an explicit length? [-Wsizeof-pointer-memaccess]
-  252 |     strncpy(estado,"ACTIVO",sizeof(estado));
-      |                                   ^
-../src/publicidad.c: In function ‘pub_reanudarPublicacion’:
-../src/publicidad.c:356:41: warning: passing argument 3 of ‘pub_cambiarEstado’ from incompatible pointer type [-Wincompatible-pointer-types]
-  356 |       pub_cambiarEstado(pArray, limite, &avisoActivar);
-      |                                         ^~~~~~~~~~~~~
-      |                                         |
-      |                                         int *
-../src/publicidad.c:242:60: note: expected ‘char *’ but argument is of type ‘int *’
-  242 | int pub_cambiarEstado(Publicidad* pArray, int limite,char* estado)
-      |                                                      ~~~~~~^~~~~~
-Finished building: ../src/publicidad.c
- 
 Building target: Parcial_1
 Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
+gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/informes.o ./src/publicidad.o ./src/utN.o   
 Finished building target: Parcial_1
  
-17:58:24 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-Building file: ../src/publicidad.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/publicidad.d" -MT"src/publicidad.o" -o "src/publicidad.o" "../src/publicidad.c"
-../src/publicidad.c: In function ‘pub_cambiarEstado’:
-../src/publicidad.c:252:35: warning: argument to ‘sizeof’ in ‘strncpy’ call is the same expression as the destination; did you mean to provide an explicit length? [-Wsizeof-pointer-memaccess]
-  252 |     strncpy(estado,"ACTIVO",sizeof(estado));
-      |                                   ^
-Finished building: ../src/publicidad.c
- 
-Building target: Parcial_1
-Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
-Finished building target: Parcial_1
- 
-18:01:45 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-Building file: ../src/publicidad.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/publicidad.d" -MT"src/publicidad.o" -o "src/publicidad.o" "../src/publicidad.c"
-../src/publicidad.c:242:5: error: conflicting types for ‘pub_cambiarEstado’
-  242 | int pub_cambiarEstado(Publicidad* pArray, int limite,int* estado)
-      |     ^~~~~~~~~~~~~~~~~
-In file included from ../src/publicidad.c:7:
-../src/publicidad.h:36:5: note: previous declaration of ‘pub_cambiarEstado’ was here
-   36 | int pub_cambiarEstado(Publicidad* pArray, int limite,char* estado);
-      |     ^~~~~~~~~~~~~~~~~
-../src/publicidad.c: In function ‘pub_pausarPublicacion’:
-../src/publicidad.c:328:41: warning: passing argument 3 of ‘pub_cambiarEstado’ from incompatible pointer type [-Wincompatible-pointer-types]
-  328 |       pub_cambiarEstado(pArray, limite, estado);
-      |                                         ^~~~~~
-      |                                         |
-      |                                         char *
-../src/publicidad.c:242:59: note: expected ‘int *’ but argument is of type ‘char *’
-  242 | int pub_cambiarEstado(Publicidad* pArray, int limite,int* estado)
-      |                                                      ~~~~~^~~~~~
-make: *** [src/subdir.mk:32: src/publicidad.o] Error 1
-"make all" terminated with exit code 2. Build might be incomplete.
-18:02:09 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-Building file: ../src/Parcial_1.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Parcial_1.d" -MT"src/Parcial_1.o" -o "src/Parcial_1.o" "../src/Parcial_1.c"
-Finished building: ../src/Parcial_1.c
- 
-Building file: ../src/calculos.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/calculos.d" -MT"src/calculos.o" -o "src/calculos.o" "../src/calculos.c"
-Finished building: ../src/calculos.c
- 
-Building file: ../src/cliente.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/cliente.d" -MT"src/cliente.o" -o "src/cliente.o" "../src/cliente.c"
-Finished building: ../src/cliente.c
- 
-Building file: ../src/publicidad.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/publicidad.d" -MT"src/publicidad.o" -o "src/publicidad.o" "../src/publicidad.c"
-../src/publicidad.c: In function ‘pub_pausarPublicacion’:
-../src/publicidad.c:328:41: warning: passing argument 3 of ‘pub_cambiarEstado’ from incompatible pointer type [-Wincompatible-pointer-types]
-  328 |       pub_cambiarEstado(pArray, limite, estado);
-      |                                         ^~~~~~
-      |                                         |
-      |                                         char *
-../src/publicidad.c:242:59: note: expected ‘int *’ but argument is of type ‘char *’
-  242 | int pub_cambiarEstado(Publicidad* pArray, int limite,int* estado)
-      |                                                      ~~~~~^~~~~~
-Finished building: ../src/publicidad.c
- 
-Building target: Parcial_1
-Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
-Finished building target: Parcial_1
- 
-18:02:55 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-Building file: ../src/publicidad.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/publicidad.d" -MT"src/publicidad.o" -o "src/publicidad.o" "../src/publicidad.c"
-Finished building: ../src/publicidad.c
- 
-Building target: Parcial_1
-Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
-Finished building target: Parcial_1
- 
-18:11:34 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-Building file: ../src/Parcial_1.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/Parcial_1.d" -MT"src/Parcial_1.o" -o "src/Parcial_1.o" "../src/Parcial_1.c"
-../src/Parcial_1.c: In function ‘main’:
-../src/Parcial_1.c:74:10: warning: implicit declaration of function ‘pub_bajaPublicidadCliente’ [-Wimplicit-function-declaration]
-   74 |       if(pub_bajaPublicidadCliente(pArrayPublicidad, QTY_PUBLICACION, pArrayCliente, QTY_CLIENTE)==0)
-      |          ^~~~~~~~~~~~~~~~~~~~~~~~~
-Finished building: ../src/Parcial_1.c
- 
-Building file: ../src/calculos.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/calculos.d" -MT"src/calculos.o" -o "src/calculos.o" "../src/calculos.c"
-Finished building: ../src/calculos.c
- 
-Building file: ../src/cliente.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/cliente.d" -MT"src/cliente.o" -o "src/cliente.o" "../src/cliente.c"
-Finished building: ../src/cliente.c
- 
-Building file: ../src/publicidad.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/publicidad.d" -MT"src/publicidad.o" -o "src/publicidad.o" "../src/publicidad.c"
-../src/publicidad.c: In function ‘pub_bajaPublicidadCliente’:
-../src/publicidad.c:297:92: warning: passing argument 3 of ‘utn_getCaracter’ from incompatible pointer type [-Wincompatible-pointer-types]
-  297 |      if(utn_getCaracter("\n---Desea confirmar Eliminacion  SI[s] NO[n]---\n", "\nERROR\n", &respuesta, 1, 'n', 's')==0)
-      |                                                                                            ^~~~~~~~~~
-      |                                                                                            |
-      |                                                                                            int *
-In file included from ../src/publicidad.c:14:
-../src/utN.h:15:61: note: expected ‘char *’ but argument is of type ‘int *’
-   15 | int utn_getCaracter(char* mensaje, char* mensajeError,char* pResultado,int reintentos,char min, char max);
-      |                                                       ~~~~~~^~~~~~~~~~
-Finished building: ../src/publicidad.c
- 
-Building target: Parcial_1
-Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
-Finished building target: Parcial_1
- 
-18:12:02 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-Building file: ../src/publicidad.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/publicidad.d" -MT"src/publicidad.o" -o "src/publicidad.o" "../src/publicidad.c"
-Finished building: ../src/publicidad.c
- 
-Building target: Parcial_1
-Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
-Finished building target: Parcial_1
- 
-18:12:07 **** Incremental Build of configuration Debug for project Parcial_1 ****
+16:40:57 **** Incremental Build of configuration Debug for project Parcial_1 ****
 make all 
 make: No se hace nada para 'all'.
-18:12:59 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-make: No se hace nada para 'all'.
-18:14:36 **** Incremental Build of configuration Debug for project Parcial_1 ****
-make all 
-Building file: ../src/publicidad.c
-Invoking: GCC C Compiler
-gcc -O0 -g3 -Wall -c -fmessage-length=0 -MMD -MP -MF"src/publicidad.d" -MT"src/publicidad.o" -o "src/publicidad.o" "../src/publicidad.c"
-Finished building: ../src/publicidad.c
- 
-Building target: Parcial_1
-Invoking: GCC C Linker
-gcc  -o "Parcial_1"  ./src/Parcial_1.o ./src/calculos.o ./src/cliente.o ./src/publicidad.o ./src/utN.o   
-Finished building target: Parcial_1
- 

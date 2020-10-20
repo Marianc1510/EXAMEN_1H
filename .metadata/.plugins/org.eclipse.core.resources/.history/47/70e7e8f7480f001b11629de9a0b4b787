@@ -1,0 +1,15 @@
+/*
+ * informes.h
+ *
+ *  Created on: 15 oct. 2020
+ *      Author: mariana
+ */
+
+#ifndef INFORMES_H_
+#define INFORMES_H_
+#include "cliente.h"
+#include "publicidad.h"
+int inf_bajaPublicidadCliente(Publicidad* pArray,int limite,Cliente* pArrayCliente,int limCliente);
+
+
+#endif /* INFORMES_H_ */

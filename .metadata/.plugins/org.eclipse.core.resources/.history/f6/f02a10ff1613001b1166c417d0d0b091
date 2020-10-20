@@ -1,0 +1,63 @@
+/*
+ * informes.c
+ *
+ *  Created on: 15 oct. 2020
+ *      Author: mariana
+ */
+
+#include <stdio_ext.h>
+#include <stdlib.h>
+#include <string.h>
+#include <limits.h>
+#include "utN.h"
+#include "publicidad.h"
+#include "cliente.h"
+#define QTY_CLIENTE 10
+#define QTY_PUBLICACION 10
+
+int pub_maxAvisos(Publicidad* pArray, Cliente* pArrayCli)
+{
+	int retorno = -1;
+	int i;
+	int j;
+	int flagAvisos=0;
+	int maximoAvisos;
+	if(pArray !=NULL && pArrayCli !=NULL )
+	{
+		for(i=0;i <QTY_PUBLICACION ; i++)
+		{
+			//pub_printAvisoCliente(pArray, QTY_PUBLICACION, );
+		}
+	}
+	return retorno;
+}
+
+int inf_contadorAvisosPausados(Publicidad* pArray,int limite)
+{
+	int retorno=-1;
+	int contador=0;
+	int acumuladorAvisos=0;
+	int avisosPausados;
+	if(pArray !=NULL && limite >0)
+	{
+		pub_printAvisoCliente(pArray, limite, avisosPausados);
+	}
+	return retorno;
+}
+
+int inf_maxRubro(Publicidad* pArray,Cliente* pArrayCli)
+{
+	int retorno=-1;
+	return retorno;
+}
+int inf_maxAvisosActivos(Publicidad* pArray,Cliente* pArrayCli)
+{
+	int retorno=-1;
+	return retorno;
+}
+int inf_maxAvisosPausados(Publicidad* pArray,Cliente* pArrayCli)
+{
+	int retorno=-1;
+	return retorno;
+}
+

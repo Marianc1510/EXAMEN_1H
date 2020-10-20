@@ -7,6 +7,7 @@ C_SRCS += \
 ../src/Parcial_1.c \
 ../src/calculos.c \
 ../src/cliente.c \
+../src/informes.c \
 ../src/publicidad.c \
 ../src/utN.c 
 
@@ -14,6 +15,7 @@ OBJS += \
 ./src/Parcial_1.o \
 ./src/calculos.o \
 ./src/cliente.o \
+./src/informes.o \
 ./src/publicidad.o \
 ./src/utN.o 
 
@@ -21,6 +23,7 @@ C_DEPS += \
 ./src/Parcial_1.d \
 ./src/calculos.d \
 ./src/cliente.d \
+./src/informes.d \
 ./src/publicidad.d \
 ./src/utN.d 
 

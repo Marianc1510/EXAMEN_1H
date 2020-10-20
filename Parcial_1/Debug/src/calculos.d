@@ -1,8 +1,8 @@
-src/calculos.o: ../src/calculos.c ../src/publicidad.h ../src/cliente.h \
- ../src/utN.h
+src/calculos.o: ../src/calculos.c ../src/publicidad.h ../src/utN.h \
+ ../src/cliente.h
 
 ../src/publicidad.h:
 
-../src/cliente.h:
-
 ../src/utN.h:
+
+../src/cliente.h:
